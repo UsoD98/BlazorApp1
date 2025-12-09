@@ -41,6 +41,4 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
-app.MapBlazorHub(); // SignalR 기반 이벤트 처리
-
 app.Run();
