@@ -1,8 +1,6 @@
 using BlazorApp1.Components;
 using BlazorApp1.Data;
 using BlazorApp1.Domain.Repository;
-using Radzen;
-
 var builder = WebApplication.CreateBuilder(args);
 
 // IConfiguration은 자동으로 환경(appsettings.{Environment}.json + user-secrets + 환경변수)을 병합합니다.
@@ -10,10 +8,8 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 
 // Add services to the container.
 // Radzen 서비스 등록
-builder.Services.AddRadzenComponents();
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
-builder.Services.AddRadzenComponents();
 // DapperContext & Repository 등록
 builder.Services.AddSingleton<DapperContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
