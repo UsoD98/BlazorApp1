@@ -3,6 +3,9 @@ using BlazorApp1.Data;
 using BlazorApp1.Domain.Repository;
 var builder = WebApplication.CreateBuilder(args);
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+builder.WebHost.UseUrls($"http://0.0.0.0:{port}");
+
 // IConfiguration은 자동으로 환경(appsettings.{Environment}.json + user-secrets + 환경변수)을 병합합니다.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
